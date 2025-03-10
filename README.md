@@ -1,2 +1,2 @@
 # capybara
-learn git and c# whit monogame
+learning git and c# whit monogame
