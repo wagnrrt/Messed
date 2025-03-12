@@ -1,7 +1,9 @@
 # Ignore
 .config/
-Content/
+Content/bin/
+Content/obj/
+Content/Content.mgcb
 app.manifest
 capybara.csproj
-obj/
 bin/
+obj/
