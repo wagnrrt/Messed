@@ -4,3 +4,4 @@ Content/
 app.manifest
 capybara.csproj
 obj/
+bin/
