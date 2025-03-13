@@ -5,22 +5,16 @@ namespace capybara;
 
 public class Sprite
 {
-  public Texture2D tex;
-	public Vector2 pos;
-	public int scale; 
+	public Texture2D Tex;
+	public Vector2 Pos;
+	public int Scale;
 
 	public Sprite(Texture2D tex, Vector2 pos, int scale)
 	{
-		this.tex = tex;
-		this.pos = pos;
-		this.scale = scale;
+		Tex = tex;
+		Pos = pos;
+		Scale = scale;
 	}
 
-	public Rectangle Rect
-	{
-		get
-		{
-			return new Rectangle((int)pos.X, (int)pos.Y, scale, scale);
-		}
-	}
+	public Rectangle Rect => new Rectangle((int)Pos.X, (int)Pos.Y, Scale, Scale);
 }
