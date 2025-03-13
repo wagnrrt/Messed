@@ -44,7 +44,7 @@ public class Main : Game
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-			_spriteBatch.Draw(test.tex, test.Rect, Color.White);
+			_spriteBatch.Draw(test.Tex, test.Rect, Color.White);
 
 			_spriteBatch.End();
 
