@@ -5,11 +5,11 @@ namespace capybara;
 
 public class Sprite
 {
-  private Texture2D tex;
-	private Vector2 pos;
-	private byte scale; 
+  public Texture2D tex;
+	public Vector2 pos;
+	public int scale; 
 
-	public Sprite(Texture2D tex, Vector2 pos, byte scale)
+	public Sprite(Texture2D tex, Vector2 pos, int scale)
 	{
 		this.tex = tex;
 		this.pos = pos;
