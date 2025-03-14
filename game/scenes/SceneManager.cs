@@ -13,6 +13,7 @@ public class SceneManager
 
 	public void AddScene(Scene scene)
 	{
+		scene.Load();
 		sceneStack.Push(scene);
 	}
 
