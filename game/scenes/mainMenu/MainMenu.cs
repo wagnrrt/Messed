@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace capybara;
 
-public class Menu : Scene
+public class MainMenu : Scene
 {
 	private ContentManager contentManager;
 
