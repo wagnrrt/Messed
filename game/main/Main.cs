@@ -9,13 +9,15 @@ public class Main : Game
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
 
-		Sprite test;
+		private SceneManager sceneManager;
 
 		public Main()
 		{
 			_graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
+
+			sceneManager = new();
 		}
 
 		protected override void Initialize()
@@ -27,14 +29,15 @@ public class Main : Game
 		{
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 			
-			Texture2D tex = Content.Load<Texture2D>("assets/capybara/capybara");
-			test = new Sprite(tex, Vector2.Zero, 64);
+			sceneManager.AddScene(new Menu());
 		}
 
 		protected override void Update(GameTime gameTime)
 		{
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
+
+			sceneManager.GetCurrentScene().Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -44,7 +47,7 @@ public class Main : Game
 			GraphicsDevice.Clear(Color.Black);
 			_spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-			_spriteBatch.Draw(test.Tex, test.Rect, Color.White);
+			sceneManager.GetCurrentScene().Draw(_spriteBatch);
 
 			_spriteBatch.End();
 
