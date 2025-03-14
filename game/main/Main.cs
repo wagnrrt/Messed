@@ -6,14 +6,14 @@ namespace capybara;
 
 public class Main : Game
 {
-		private GraphicsDeviceManager _graphics;
-		private SpriteBatch _spriteBatch;
+		private GraphicsDeviceManager graphics;
+		private SpriteBatch spriteBatch;
 
 		private SceneManager sceneManager;
 
 		public Main()
 		{
-			_graphics = new GraphicsDeviceManager(this);
+			graphics = new GraphicsDeviceManager(this);
 			Content.RootDirectory = "Content";
 			IsMouseVisible = true;
 
@@ -27,9 +27,9 @@ public class Main : Game
 
 		protected override void LoadContent()
 		{
-			_spriteBatch = new SpriteBatch(GraphicsDevice);
+			spriteBatch = new SpriteBatch(GraphicsDevice);
 			
-			sceneManager.AddScene(new Menu());
+				sceneManager.AddScene(new MainMenu(Content));
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -45,11 +45,11 @@ public class Main : Game
 		protected override void Draw(GameTime gameTime)
 		{
 			GraphicsDevice.Clear(Color.Black);
-			_spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+			spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-			sceneManager.GetCurrentScene().Draw(_spriteBatch);
+			sceneManager.GetCurrentScene().Draw(spriteBatch);
 
-			_spriteBatch.End();
+			spriteBatch.End();
 
 			base.Draw(gameTime);
 		}

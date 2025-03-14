@@ -6,15 +6,16 @@ namespace capybara;
 public class Sprite
 {
 	public Texture2D Tex;
-	public Vector2 Pos;
-	public int Scale;
+	public Rectangle Rect;
 
-	public Sprite(Texture2D tex, Vector2 pos, int scale)
+	public Sprite(Texture2D tex, Rectangle rect)
 	{
 		Tex = tex;
-		Pos = pos;
-		Scale = scale;
+		Rect = rect;
 	}
 
-	public Rectangle Rect => new Rectangle((int)Pos.X, (int)Pos.Y, Scale, Scale);
+	public void Draw(SpriteBatch spriteBatch)
+	{
+		spriteBatch.Draw(Tex, Rect, Color.White);
+	}
 }
