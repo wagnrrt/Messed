@@ -16,15 +16,15 @@ public class AnimationManager
 	int rowPos;
 	int colPos;
 
-	public AnimationManager(int numFrames, int numColumns, Vector2 size)
+	public AnimationManager(int numFrames, int numColumns, Vector2 size, int interval)
 	{
 		this.numFrames = numFrames;
 		this.numColumns = numColumns;
 		this.size = size;
 
+		this.interval = interval;
 		counter = 0;
 		activeFrame = 0;
-		interval = 30;
 
 		rowPos = 0;
 		colPos = 0;
@@ -44,15 +44,15 @@ public class AnimationManager
 	{
 		activeFrame++;
 		colPos++;
+
 		if(activeFrame >= numFrames)
 		{
 			ResetAnimation();
 		}
 
-		if(colPos >= numColumns)
+		if(numColumns > 1 && colPos >= numColumns)
 		{
-			colPos = 0;
-			rowPos++;
+				colPos = 0;
 		}
 	}
 

@@ -14,8 +14,11 @@ public class Sprite
 		Rect = rect;
 	}
 
-	public void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch, AnimationManager animationManager = null, Color? color = null)
 	{
-		spriteBatch.Draw(Tex, Rect, Color.White);
+		if(animationManager != null) 
+			spriteBatch.Draw(Tex, Rect, animationManager.GetFrame(), color ?? Color.White);
+		else
+			spriteBatch.Draw(Tex, Rect, color ?? Color.White);
 	}
 }

@@ -17,9 +17,8 @@ public class MainMenu : Scene
 
 	public void Load()
 	{
-		Texture2D cat = contentManager.Load<Texture2D>("assets/cats/cat");
-		sprite = new(cat, new Rectangle(100,100, 64, 64));
-		am = new(1, 1, new Vector2(16, 16));
+		sprite = new(contentManager.Load<Texture2D>("assets/cats/cat"), new Rectangle(0, 0, 128, 128));
+		am = new(11, 1, new Vector2(16, 16), 8);
 	}
 	public void Update(GameTime gametime)
 	{
@@ -27,6 +26,6 @@ public class MainMenu : Scene
 	}
 	public void Draw(SpriteBatch spriteBatch)
 	{
-			spriteBatch.Draw(sprite.Tex, new Rectangle(100, 100, 64, 64), am.GetFrame(), Color.White);
+		sprite.Draw(spriteBatch, am);
 	}
 }
