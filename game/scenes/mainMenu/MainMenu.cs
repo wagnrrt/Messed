@@ -4,11 +4,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace capybara;
 
+// classe que gerencia a exibição e interação com o menu inicial.
 public class MainMenu : Scene
 {
 	private ContentManager contentManager;
-	private Sprite sprite;
-	private AnimationManager am;
 
 	public MainMenu(ContentManager contentManager)
 	{
@@ -17,15 +16,13 @@ public class MainMenu : Scene
 
 	public void Load()
 	{
-		sprite = new(contentManager.Load<Texture2D>("assets/cats/cat"), new Rectangle(0, 0, 128, 128));
-		am = new(11, 1, new Vector2(16, 16), 8);
 	}
+
 	public void Update(GameTime gametime)
 	{
-		am.Update();
 	}
+
 	public void Draw(SpriteBatch spriteBatch)
 	{
-		sprite.Draw(spriteBatch, am);
 	}
 }

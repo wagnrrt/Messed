@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace capybara;
 
+// classe que gerencia as animações de um sprite no jogo.
 public class AnimationManager
 {
 
@@ -29,7 +30,8 @@ public class AnimationManager
 		rowPos = 0;
 		colPos = 0;
 	}
-
+	
+	// atualiza a animação de acordo com o intervalo.
 	public void Update()
 	{
 		counter++;
@@ -40,6 +42,7 @@ public class AnimationManager
 		}
 	}
 
+	// avança para o proximo quadro do sprite.
 	public void NextFrame()
 	{
 		activeFrame++;
@@ -56,13 +59,15 @@ public class AnimationManager
 		}
 	}
 
+	// função resposável por resetar a animação.
 	public void ResetAnimation()
 	{
 		activeFrame = 0;
 		colPos = 0;
 		rowPos = 0;
 	}
-
+	
+	// obtém o retângulo que define a posição e o tamanho do quadro atual na sprite sheet.
 	public Rectangle GetFrame()
 	{
 		return new Rectangle(
