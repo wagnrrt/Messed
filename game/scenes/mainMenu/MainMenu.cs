@@ -14,15 +14,9 @@ public class MainMenu : Scene
 		this.contentManager = contentManager;
 	}
 
-	public void Load()
-	{
-	}
+	public void Load() { }
 
-	public void Update(GameTime gametime)
-	{
-	}
+	public void Update(GameTime gametime) { }
 
-	public void Draw(SpriteBatch spriteBatch)
-	{
-	}
+	public void Draw(SpriteBatch spriteBatch) { }
 }

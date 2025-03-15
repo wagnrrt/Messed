@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace capybara;
 
@@ -35,19 +35,31 @@ public class InitAnimation : Scene
 	private class InitalCat
 	{
 		private ContentManager contentManager;
-		private Sprite cat;
+		private Sprite spriteCat;
 		private AnimationManager catAnimation;
 
-		public InitalCat(ContentManager contentManager) { this.contentManager = contentManager; }
+		public InitalCat(ContentManager contentManager)
+		{
+			this.contentManager = contentManager;
+		}
 
 		public void Load()
 		{
-			cat = new(contentManager.Load<Texture2D>("assets/cats/cat"), new Rectangle(0, 0, 128, 128));
-			catAnimation = new(11, 1, new Vector2(16, 16), 8); 
+			spriteCat = new(
+				contentManager.Load<Texture2D>("assets/cats/cat"),
+				new Rectangle(0, 0, 128, 128)
+			);
+			catAnimation = new(11, 1, new Vector2(16, 16), 8);
 		}
-		
-		public void Update(GameTime gameTime) { catAnimation.Update(); }
 
-		public void Draw(SpriteBatch spriteBatch) { cat.Draw(spriteBatch, catAnimation); }
+		public void Update(GameTime gameTime)
+		{
+			catAnimation.Update();
+		}
+
+		public void Draw(SpriteBatch spriteBatch)
+		{
+			spriteCat.Draw(spriteBatch, catAnimation);
+		}
 	}
 }

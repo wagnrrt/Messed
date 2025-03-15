@@ -7,55 +7,58 @@ namespace capybara;
 // classe principal do jogo, responsável inicial a aplicação.
 public class Main : Game
 {
-		private GraphicsDeviceManager graphics;
-		private SpriteBatch spriteBatch;
+	private GraphicsDeviceManager graphics;
+	private SpriteBatch spriteBatch;
 
-		private SceneManager sceneManager;
+	private SceneManager sceneManager;
 
-		public Main()
-		{
-			graphics = new GraphicsDeviceManager(this);
-			Content.RootDirectory = "Content";
-			IsMouseVisible = true;
+	public Main()
+	{
+		graphics = new GraphicsDeviceManager(this);
+		Content.RootDirectory = "Content";
+		IsMouseVisible = true;
 
-			sceneManager = new();
-		}
+		sceneManager = new();
+	}
 
-		protected override void Initialize()
-		{
-			base.Initialize();
-		}
+	protected override void Initialize()
+	{
+		base.Initialize();
+	}
 
-		// função fundamental resposável por carrega todos os recursos usados no jogo.
-		protected override void LoadContent()
-		{
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-			
-				sceneManager.AddScene(new InitAnimation(Content));
-		}
+	// função fundamental resposável por carrega todos os recursos usados no jogo.
+	protected override void LoadContent()
+	{
+		spriteBatch = new SpriteBatch(GraphicsDevice);
 
-		// função fundamental resposável por atualizar o estado do jogo a cada frame.
-		protected override void Update(GameTime gameTime)
-		{
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-				Exit();
+		sceneManager.AddScene(new InitAnimation(Content));
+	}
 
-			sceneManager.GetCurrentScene().Update(gameTime);
+	// função fundamental resposável por atualizar o estado do jogo a cada frame.
+	protected override void Update(GameTime gameTime)
+	{
+		if (
+			GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
+			|| Keyboard.GetState().IsKeyDown(Keys.Escape)
+		)
+			Exit();
 
-			base.Update(gameTime);
-		}
+		sceneManager.GetCurrentScene().Update(gameTime);
 
-		// função fundamental para a exibição do jogo.
-		protected override void Draw(GameTime gameTime)
-		{
-			GraphicsDevice.Clear(Color.Black);
+		base.Update(gameTime);
+	}
 
-			spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+	// função fundamental para a exibição do jogo.
+	protected override void Draw(GameTime gameTime)
+	{
+		GraphicsDevice.Clear(Color.Black);
 
-			sceneManager.GetCurrentScene().Draw(spriteBatch);
+		spriteBatch.Begin(samplerState: SamplerState.PointClamp);
 
-			spriteBatch.End();
+		sceneManager.GetCurrentScene().Draw(spriteBatch);
 
-			base.Draw(gameTime);
-		}
+		spriteBatch.End();
+
+		base.Draw(gameTime);
+	}
 }

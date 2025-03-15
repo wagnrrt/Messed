@@ -5,7 +5,6 @@ namespace capybara;
 // classe que gerencia as animações de um sprite no jogo.
 public class AnimationManager
 {
-
 	int numFrames;
 	int numColumns;
 	Vector2 size;
@@ -30,12 +29,12 @@ public class AnimationManager
 		rowPos = 0;
 		colPos = 0;
 	}
-	
+
 	// atualiza a animação de acordo com o intervalo.
 	public void Update()
 	{
 		counter++;
-		if(counter > interval)
+		if (counter > interval)
 		{
 			counter = 0;
 			NextFrame();
@@ -48,14 +47,14 @@ public class AnimationManager
 		activeFrame++;
 		colPos++;
 
-		if(activeFrame >= numFrames)
+		if (activeFrame >= numFrames)
 		{
 			ResetAnimation();
 		}
 
-		if(numColumns > 1 && colPos >= numColumns)
+		if (numColumns > 1 && colPos >= numColumns)
 		{
-				colPos = 0;
+			colPos = 0;
 		}
 	}
 
@@ -66,14 +65,10 @@ public class AnimationManager
 		colPos = 0;
 		rowPos = 0;
 	}
-	
+
 	// obtém o retângulo que define a posição e o tamanho do quadro atual na sprite sheet.
 	public Rectangle GetFrame()
 	{
-		return new Rectangle(
-				colPos * (int)size.X,
-				rowPos * (int)size.Y,
-				(int)size.X,
-				(int)size.Y);
+		return new Rectangle(colPos * (int)size.X, rowPos * (int)size.Y, (int)size.X, (int)size.Y);
 	}
 }

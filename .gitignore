@@ -7,3 +7,4 @@ app.manifest
 capybara.csproj
 bin/
 obj/
+.csharpierrc.json
