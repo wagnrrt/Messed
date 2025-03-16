@@ -3,9 +3,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace capybara;
 
-public interface Scene
+internal class Scene
 {
-	public void Load();
-	public void Update(GameTime gametime);
-	public void Draw(SpriteBatch spriteBatch);
+	public virtual void Load() { }
+	public virtual void Update(GameTime gametime) { }
+	public virtual void Draw(SpriteBatch spriteBatch) { }
 }

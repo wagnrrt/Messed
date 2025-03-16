@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace capybara;
 
 // classe que gerencia a exibição e interação com o menu inicial.
-public class MainMenu : Scene
+internal class MainMenu : Scene
 {
 	private ContentManager contentManager;
 
@@ -14,9 +14,9 @@ public class MainMenu : Scene
 		this.contentManager = contentManager;
 	}
 
-	public void Load() { }
+	public override void Load() { }
 
-	public void Update(GameTime gametime) { }
+	public override void Update(GameTime gametime) { }
 
-	public void Draw(SpriteBatch spriteBatch) { }
+	public override void Draw(SpriteBatch spriteBatch) { }
 }

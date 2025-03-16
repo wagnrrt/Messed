@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace capybara;
 
-public class SceneManager
+internal class SceneManager
 {
 	private readonly Stack<Scene> sceneStack;
 

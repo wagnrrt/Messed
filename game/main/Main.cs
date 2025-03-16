@@ -1,24 +1,27 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace capybara;
 
 // classe principal do jogo, responsável inicial a aplicação.
-public class Main : Game
+internal class Main : Game
 {
 	private GraphicsDeviceManager graphics;
 	private SpriteBatch spriteBatch;
 
 	private SceneManager sceneManager;
 
+	private WindowManager wm;
+
 	public Main()
 	{
 		graphics = new GraphicsDeviceManager(this);
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
-
 		sceneManager = new();
+		wm = new(graphics);
 	}
 
 	protected override void Initialize()
@@ -30,18 +33,17 @@ public class Main : Game
 	protected override void LoadContent()
 	{
 		spriteBatch = new SpriteBatch(GraphicsDevice);
-
 		sceneManager.AddScene(new InitAnimation(Content));
 	}
 
 	// função fundamental resposável por atualizar o estado do jogo a cada frame.
-	protected override void Update(GameTime gameTime)
+		protected override void Update(GameTime gameTime)
 	{
 		if (
 			GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
 			|| Keyboard.GetState().IsKeyDown(Keys.Escape)
 		)
-			Exit();
+			Console.WriteLine("Esc");
 
 		sceneManager.GetCurrentScene().Update(gameTime);
 
@@ -54,17 +56,9 @@ public class Main : Game
 		GraphicsDevice.Clear(Color.Black);
 
 		spriteBatch.Begin(samplerState: SamplerState.PointClamp);
-
 		sceneManager.GetCurrentScene().Draw(spriteBatch);
-
 		spriteBatch.End();
 
 		base.Draw(gameTime);
-	}
-
-	// função que retorna o valor X e Y da tela
-	public Vector2 GetScreenSize()
-	{
-		return new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
 	}
 }

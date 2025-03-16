@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 namespace capybara;
 
 // classe que gerencia as animações de um sprite no jogo.
-public class AnimationManager
+internal class AnimationManager
 {
 	int numFrames;
 	int numColumns;
