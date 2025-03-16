@@ -37,6 +37,7 @@ public class InitAnimation : Scene
 		private ContentManager contentManager;
 		private Sprite spriteCat;
 		private AnimationManager catAnimation;
+		private Main main;
 
 		public InitalCat(ContentManager contentManager)
 		{
@@ -45,11 +46,12 @@ public class InitAnimation : Scene
 
 		public void Load()
 		{
-			spriteCat = new(
-				contentManager.Load<Texture2D>("assets/cats/cat"),
-				new Rectangle(0, 0, 128, 128)
-			);
-			catAnimation = new(11, 1, new Vector2(16, 16), 8);
+			main = new();
+
+			Texture2D catTex = contentManager.Load<Texture2D>("assets/cats/cat");
+
+			spriteCat = new(catTex, new Vector2(main.GetScreenSize().X / 2, main.GetScreenSize().Y / 2));
+			catAnimation = new(11, 1, new Vector2(12, 9), 8);
 		}
 
 		public void Update(GameTime gameTime)
@@ -59,7 +61,7 @@ public class InitAnimation : Scene
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteCat.Draw(spriteBatch, catAnimation);
+			spriteBatch.Draw(spriteCat.Tex, spriteCat.Pos, catAnimation.GetFrame(), Color.White, 0f, new Vector2(), 4f, SpriteEffects.None, 0f);
 		}
 	}
 }

@@ -61,4 +61,10 @@ public class Main : Game
 
 		base.Draw(gameTime);
 	}
+
+	// função que retorna o valor X e Y da tela
+	public Vector2 GetScreenSize()
+	{
+		return new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+	}
 }

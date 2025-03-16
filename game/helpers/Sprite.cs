@@ -7,23 +7,16 @@ namespace capybara;
 public class Sprite
 {
 	public Texture2D Tex;
-	public Rectangle Rect;
+	public Vector2 Pos;
 
-	public Sprite(Texture2D tex, Rectangle rect)
+	public Sprite(Texture2D tex, Vector2 pos)
 	{
 		Tex = tex;
-		Rect = rect;
+		Pos = pos;
 	}
 
-	public void Draw(
-		SpriteBatch spriteBatch,
-		AnimationManager animationManager = null,
-		Color? color = null
-	)
+	public Rectangle Rect(int size)
 	{
-		if (animationManager != null)
-			spriteBatch.Draw(Tex, Rect, animationManager.GetFrame(), color ?? Color.White);
-		else
-			spriteBatch.Draw(Tex, Rect, color ?? Color.White);
+		return new Rectangle((int)Pos.X, (int)Pos.Y, size, size);
 	}
 }
