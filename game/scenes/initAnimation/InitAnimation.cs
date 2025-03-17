@@ -13,7 +13,6 @@ internal class InitAnimation : Scene
 	public InitAnimation(ContentManager contentManager)
 	{
 		this.contentManager = contentManager;
-
 	}
 
 	public override void Load()

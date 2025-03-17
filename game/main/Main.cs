@@ -37,7 +37,7 @@ internal class Main : Game
 	}
 
 	// função fundamental resposável por atualizar o estado do jogo a cada frame.
-		protected override void Update(GameTime gameTime)
+	protected override void Update(GameTime gameTime)
 	{
 		if (
 			GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed

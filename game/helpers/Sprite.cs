@@ -11,7 +11,12 @@ internal class Sprite
 	public AnimationManager AnimationManager;
 	public float SCALE;
 
-	public Sprite(Texture2D tex, Vector2 pos, AnimationManager animationManager = null, float scale = 1)
+	public Sprite(
+		Texture2D tex,
+		Vector2 pos,
+		AnimationManager animationManager = null,
+		float scale = 1
+	)
 	{
 		Tex = tex;
 		Pos = pos;
@@ -19,12 +24,23 @@ internal class Sprite
 		SCALE = scale;
 	}
 
-	public virtual void Update(GameTime gameTime)
+	public virtual void Update(GameTime gameTime) 
 	{
+		AnimationManager.Update();
 	}
 
 	public virtual void Draw(SpriteBatch spriteBatch)
 	{
-		spriteBatch.Draw(Tex, Pos, AnimationManager?.GetFrame(), Color.White, 0f, new Vector2(), SCALE, SpriteEffects.None, 0f);
+		spriteBatch.Draw(
+			Tex,
+			Pos,
+			AnimationManager?.GetFrame(),
+			Color.White,
+			0f,
+			new Vector2(),
+			SCALE,
+			SpriteEffects.None,
+			0f
+		);
 	}
 }
