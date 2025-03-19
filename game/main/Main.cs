@@ -21,7 +21,7 @@ internal class Main : Game
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
 		sceneManager = new();
-		
+
 		GameSettings.Initialize(graphics);
 	}
 

@@ -26,13 +26,13 @@ internal class Sprite
 
 	public virtual void Update(GameTime gameTime) { }
 
-	public virtual void Draw(SpriteBatch spriteBatch)
+	public virtual void Draw(SpriteBatch spriteBatch, Color? color = null)
 	{
 		spriteBatch.Draw(
 			Tex,
 			Pos,
 			AnimationManager?.GetFrame(),
-			Color.White,
+			color ?? Color.White,
 			0f,
 			new Vector2(),
 			SCALE,
