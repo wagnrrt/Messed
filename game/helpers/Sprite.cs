@@ -26,7 +26,7 @@ internal class Sprite
 
 	public virtual void Update(GameTime gameTime) 
 	{
-		AnimationManager.Update();
+		
 	}
 
 	public virtual void Draw(SpriteBatch spriteBatch)

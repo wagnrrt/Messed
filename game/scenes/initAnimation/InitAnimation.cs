@@ -1,14 +1,15 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using capybara.entities;
 
-namespace capybara;
+namespace capybara.scene;
 
 // classe responsável pela gestão da animação inicial.
 internal class InitAnimation : Scene
 {
 	private ContentManager contentManager;
-	private Sprite sprite;
+	private Cat cat;
 
 	public InitAnimation(ContentManager contentManager)
 	{
@@ -17,17 +18,16 @@ internal class InitAnimation : Scene
 
 	public override void Load()
 	{
-		Texture2D catTex = contentManager.Load<Texture2D>("assets/cats/cat");
-		sprite = new(catTex, new Vector2(), new(11, 1, new Vector2(12, 9), 8), 10);
+		cat = new(contentManager);
 	}
 
 	public override void Update(GameTime gameTime)
 	{
-		sprite.AnimationManager.Update();
+		cat.Update(gameTime);
 	}
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
-		sprite.Draw(spriteBatch);
+		cat.Draw(spriteBatch);
 	}
 }
