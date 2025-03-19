@@ -18,7 +18,7 @@ internal class InitAnimation : Scene
 
 	public override void Load()
 	{
-		cat = new(contentManager);
+		cat = new(contentManager, 6);
 	}
 
 	public override void Update(GameTime gameTime)

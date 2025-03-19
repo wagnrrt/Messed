@@ -1,5 +1,4 @@
-﻿using System;
-using capybara.scene;
+﻿using capybara.scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,8 +22,7 @@ internal class Main : Game
 		IsMouseVisible = true;
 		sceneManager = new();
 		
-		graphics.PreferredBackBufferWidth = 800;
-		graphics.PreferredBackBufferHeight = 480;
+		GameSettings.Initialize(graphics);
 	}
 
 	protected override void Initialize()
