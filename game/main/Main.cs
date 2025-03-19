@@ -1,8 +1,8 @@
 ﻿using System;
+using capybara.scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using capybara.scene;
 
 namespace capybara;
 
@@ -14,7 +14,7 @@ internal class Main : Game
 
 	private SceneManager sceneManager;
 
-	private WindowManager wm;
+	private KeyboardState previousKeyboardState;
 
 	public Main()
 	{
@@ -22,7 +22,9 @@ internal class Main : Game
 		Content.RootDirectory = "Content";
 		IsMouseVisible = true;
 		sceneManager = new();
-		wm = new(graphics);
+		
+		graphics.PreferredBackBufferWidth = 800;
+		graphics.PreferredBackBufferHeight = 480;
 	}
 
 	protected override void Initialize()
@@ -40,11 +42,9 @@ internal class Main : Game
 	// função fundamental resposável por atualizar o estado do jogo a cada frame.
 	protected override void Update(GameTime gameTime)
 	{
-		if (
-			GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed
-			|| Keyboard.GetState().IsKeyDown(Keys.Escape)
-		)
-			Console.WriteLine("Esc");
+		KeyboardState currentKeyboardState = Keyboard.GetState();
+
+		previousKeyboardState = currentKeyboardState;
 
 		sceneManager.GetCurrentScene().Update(gameTime);
 
