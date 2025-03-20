@@ -9,12 +9,14 @@ namespace capybara.scene;
 internal class InitAnimation : Scene
 {
 	private ContentManager contentManager;
+	private SceneManager sceneManager;
 	private Cat cat;
 	private float alpha = 1;
 
-	public InitAnimation(ContentManager contentManager)
+	public InitAnimation(ContentManager contentManager, SceneManager sceneManager)
 	{
 		this.contentManager = contentManager;
+		this.sceneManager = sceneManager;
 	}
 
 	public override void Load()
@@ -24,12 +26,18 @@ internal class InitAnimation : Scene
 
 	public override void Update(GameTime gameTime)
 	{
-		alpha -= 0.003f;
+		animationUpdate();
 		cat.Update(gameTime);
 	}
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
 		cat.Draw(spriteBatch, Color.White * alpha);
+	}
+
+	private void animationUpdate()
+	{
+		alpha -= 0.002f;
+		if(alpha <= 0) { alpha = 0; sceneManager.RemoveScene(); sceneManager.AddScene(new MainMenu(contentManager)); }
 	}
 }

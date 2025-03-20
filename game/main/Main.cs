@@ -1,7 +1,6 @@
 ﻿using capybara.scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace capybara;
 
@@ -10,10 +9,7 @@ internal class Main : Game
 {
 	private GraphicsDeviceManager graphics;
 	private SpriteBatch spriteBatch;
-
 	private SceneManager sceneManager;
-
-	private KeyboardState previousKeyboardState;
 
 	public Main()
 	{
@@ -33,17 +29,13 @@ internal class Main : Game
 	// função fundamental resposável por carrega todos os recursos usados no jogo.
 	protected override void LoadContent()
 	{
+		sceneManager.AddScene(new InitAnimation(Content, sceneManager));
 		spriteBatch = new SpriteBatch(GraphicsDevice);
-		sceneManager.AddScene(new InitAnimation(Content));
 	}
 
 	// função fundamental resposável por atualizar o estado do jogo a cada frame.
 	protected override void Update(GameTime gameTime)
 	{
-		KeyboardState currentKeyboardState = Keyboard.GetState();
-
-		previousKeyboardState = currentKeyboardState;
-
 		sceneManager.GetCurrentScene().Update(gameTime);
 
 		base.Update(gameTime);
