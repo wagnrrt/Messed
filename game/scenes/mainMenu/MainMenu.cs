@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace capybara;
+namespace messed.scene;
 
 // classe que gerencia a exibição e interação com o menu inicial.
 internal class MainMenu : Scene

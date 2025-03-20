@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace capybara;
+namespace messed;
 
 internal class SceneManager
 {

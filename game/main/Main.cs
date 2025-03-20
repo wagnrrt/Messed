@@ -1,8 +1,8 @@
-﻿using capybara.scene;
+﻿using messed.scene;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace capybara;
+namespace messed;
 
 // classe principal do jogo, responsável inicial a aplicação.
 internal class Main : Game

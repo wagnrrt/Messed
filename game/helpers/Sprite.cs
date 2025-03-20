@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace capybara;
+namespace messed;
 
 // classe que representa um sprite e gerencia suas propriedades visuais no jogo.
 internal class Sprite

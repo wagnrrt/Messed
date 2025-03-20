@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace capybara;
+namespace messed;
 
 // classe que gerencia as animações de um sprite no jogo.
 internal class AnimationManager

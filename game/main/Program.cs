@@ -1,2 +1,2 @@
-﻿using var game = new capybara.Main();
+﻿using var game = new messed.Main();
 game.Run();

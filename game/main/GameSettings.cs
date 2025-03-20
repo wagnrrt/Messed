@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace capybara;
+namespace messed;
 
 public static class GameSettings
 {
@@ -9,12 +9,13 @@ public static class GameSettings
 
 	public static void Initialize(GraphicsDeviceManager graphics)
 	{
-		ScreenWidth = 800;
-		ScreenHeight = 480;
+		ScreenWidth = 1920;
+		ScreenHeight = 1080;
 
 		graphics.PreferredBackBufferWidth = ScreenWidth;
 		graphics.PreferredBackBufferHeight = ScreenHeight;
 
+		graphics.IsFullScreen = true;
 		graphics.ApplyChanges();
 	}
 
