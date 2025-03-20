@@ -4,7 +4,7 @@ Content/bin/
 Content/obj/
 Content/Content.mgcb
 app.manifest
-capybara.csproj
+messed.csproj
 bin/
 obj/
 .csharpierrc.json
