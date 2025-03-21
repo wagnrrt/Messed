@@ -10,8 +10,8 @@ internal class Cat : Sprite
 		: base(
 			contentManager.Load<Texture2D>("assets/cat/cat"),
 			new Vector2(
-				(GameSettings.GetScreenSize().X - 12 * scale) / 1.78f,
-				(GameSettings.GetScreenSize().Y - 9 * scale) / 2.05f
+				(GameSettings.GetScreenSize().X - 12 * scale) / 1.72f,
+				(GameSettings.GetScreenSize().Y - 9 * scale) / 2
 			),
 			new(11, 1, new Vector2(12, 9), 8),
 			scale

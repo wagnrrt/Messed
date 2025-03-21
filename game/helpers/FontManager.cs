@@ -18,7 +18,9 @@ internal static class FontManager
 	}
 
 	public static SpriteFont GetSmollerFont() => smoller;
+
 	public static SpriteFont GetMonogramFont() => monogram;
+
 	public static SpriteFont GetMonogramItalicFont() => monogramItalic;
 
 	public static void DrawText(
@@ -31,7 +33,6 @@ internal static class FontManager
 		Vector2 origin = new Vector2()
 	)
 	{
-
 		spriteBatch.DrawString(
 			font,
 			text,

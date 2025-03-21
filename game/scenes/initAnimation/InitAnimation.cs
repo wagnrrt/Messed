@@ -21,7 +21,7 @@ internal class InitAnimation : Scene
 
 	public override void Load()
 	{
-		cat = new(contentManager, 8);
+		cat = new(contentManager, GameSettings.GetScaleFactor() * 4);
 		FontManager.LoadFonts(contentManager);
 	}
 
@@ -33,8 +33,7 @@ internal class InitAnimation : Scene
 
 	public override void Draw(SpriteBatch spriteBatch)
 	{
-		FontManager.DrawText(spriteBatch, FontManager.GetMonogramItalicFont(), "Desenvolvido por:", new Vector2(GameSettings.GetScreenSize().X / 2, GameSettings.GetScreenSize().Y / 2), 2);
-		cat.Draw(spriteBatch, Color.White * alpha);
+		animationDraw(spriteBatch);
 	}
 
 	private void animationUpdate()
@@ -46,5 +45,45 @@ internal class InitAnimation : Scene
 			sceneManager.RemoveScene();
 			sceneManager.AddScene(new MainMenu(contentManager));
 		}
+	}
+
+	private void animationDraw(SpriteBatch spriteBatch)
+	{
+		string textCredit = "Desenvolvido por:";
+		Vector2 originCredit = FontManager.GetMonogramItalicFont().MeasureString(textCredit) / 2;
+		Vector2 posCredit = new Vector2(
+			GameSettings.GetScreenSize().X / 2,
+			GameSettings.GetScreenSize().Y / 2
+		);
+
+		FontManager.DrawText(
+			spriteBatch,
+			FontManager.GetMonogramItalicFont(),
+			textCredit,
+			posCredit,
+			GameSettings.GetScaleFactor() * 1,
+			Color.White * alpha,
+			originCredit
+		);
+
+		string textName = "Wagnxy";
+		Vector2 originName = FontManager.GetMonogramItalicFont().MeasureString(textName) / 2;
+		Vector2 posName = new Vector2(
+			GameSettings.GetScreenSize().X / 2,
+			GameSettings.GetScreenSize().Y / 1.92f
+		);
+
+
+		FontManager.DrawText(
+			spriteBatch,
+			FontManager.GetMonogramItalicFont(),
+			textName,
+			posName,
+			GameSettings.GetScaleFactor() * 1,
+			Color.White * alpha,
+			originName
+		);
+
+		cat.Draw(spriteBatch, Color.White * alpha);
 	}
 }
