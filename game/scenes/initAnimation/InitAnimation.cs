@@ -1,7 +1,5 @@
 using messed.entities;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace messed.scene;
 
@@ -21,7 +19,7 @@ internal class InitAnimation : Scene
 
 	public override void Load()
 	{
-		cat = new(contentManager, GameSettings.GetScaleFactor() * 4);
+		cat = new(contentManager, 8);
 		FontManager.LoadFonts(contentManager);
 	}
 
@@ -43,7 +41,7 @@ internal class InitAnimation : Scene
 		{
 			alpha = 0;
 			sceneManager.RemoveScene();
-			sceneManager.AddScene(new MainMenu(contentManager));
+			sceneManager.AddScene(new MainMenu(contentManager, sceneManager));
 		}
 	}
 
@@ -61,7 +59,7 @@ internal class InitAnimation : Scene
 			FontManager.GetMonogramItalicFont(),
 			textCredit,
 			posCredit,
-			GameSettings.GetScaleFactor() * 1,
+			2,
 			Color.White * alpha,
 			originCredit
 		);
@@ -73,13 +71,12 @@ internal class InitAnimation : Scene
 			GameSettings.GetScreenSize().Y / 1.92f
 		);
 
-
 		FontManager.DrawText(
 			spriteBatch,
 			FontManager.GetMonogramItalicFont(),
 			textName,
 			posName,
-			GameSettings.GetScaleFactor() * 1,
+			2,
 			Color.White * alpha,
 			originName
 		);

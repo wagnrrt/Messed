@@ -1,6 +1,4 @@
 ﻿using messed.scene;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace messed;
 
@@ -46,7 +44,7 @@ internal class Main : Game
 	{
 		GraphicsDevice.Clear(Color.Black);
 
-		spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+		spriteBatch.Begin(SpriteSortMode.Deferred, null, SamplerState.PointClamp);
 		sceneManager.GetCurrentScene().Draw(spriteBatch);
 		spriteBatch.End();
 

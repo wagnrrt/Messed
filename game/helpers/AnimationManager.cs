@@ -1,5 +1,3 @@
-using Microsoft.Xna.Framework;
-
 namespace messed;
 
 // classe que gerencia as animações de um sprite no jogo.

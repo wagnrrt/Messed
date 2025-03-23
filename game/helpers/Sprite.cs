@@ -1,6 +1,3 @@
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
 namespace messed;
 
 // classe que representa um sprite e gerencia suas propriedades visuais no jogo.
@@ -34,7 +31,7 @@ internal class Sprite
 			AnimationManager?.GetFrame(),
 			color ?? Color.White,
 			0f,
-			new Vector2(),
+			new(),
 			SCALE,
 			SpriteEffects.None,
 			0f
