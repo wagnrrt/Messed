@@ -11,9 +11,15 @@ internal class Play : Scene
 		this.contentManager = contentManager;
 	}
 
-	public override void Load() { }
+	public override void Load()
+	{
+	}
 
-	public override void Update(GameTime gametime) { }
+	public override void Update(GameTime gametime)
+	{
+	}
 
-	public override void Draw(SpriteBatch spriteBatch) { }
+	public override void Draw(SpriteBatch spriteBatch)
+	{
+	}
 }
